@@ -13,6 +13,10 @@ import java.sql.SQLException;
  */
 
 public class DatabaseConnection {
+
+    public static Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 private Connection conn;
 private String url = "jdbc:mysql://localhost:3306/proyectovaqueras";
 private String usuario = "Gerard";

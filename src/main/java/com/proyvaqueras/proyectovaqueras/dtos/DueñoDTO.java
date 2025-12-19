@@ -26,11 +26,11 @@ public DueñoDTO() {}
         this.nombreEmpresa = nombreEmpresa;
     }
     
- public int getIdUsuarioEmpresa() {
+ public int getIdDueño() {
         return idDueño;
     }
     
-public void setIdUsuarioEmpresa(int idDueño) {
+public void setIdDueño(int idDueño) {
         this.idDueño = idDueño;
     }
     
