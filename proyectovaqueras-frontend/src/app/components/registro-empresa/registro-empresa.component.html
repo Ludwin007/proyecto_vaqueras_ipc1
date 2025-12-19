@@ -1,0 +1,136 @@
+<!-- src/app/components/registro-empresa/registro-empresa.component.html -->
+
+<div class="registro-container">
+  <a routerLink="/" class="back-link">← Volver al inicio</a>
+  
+  <div class="registro-card">
+    <div class="registro-header">
+      <h1>Registro de Empresa</h1>
+      <p>Registra tu empresa desarrolladora</p>
+    </div>
+
+    <div class="registro-body">
+      <div class="alert alert-error" *ngIf="errorMessage" [class.show]="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <div class="alert alert-success" *ngIf="successMessage" [class.show]="successMessage">
+        {{ successMessage }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #registroForm="ngForm">
+        <h3 class="section-title">Datos de la Empresa</h3>
+        
+        <div class="form-group">
+          <label for="nombreEmpresa">Nombre de la Empresa *</label>
+          <input 
+            type="text" 
+            id="nombreEmpresa" 
+            name="nombreEmpresa"
+            [(ngModel)]="registroData.nombreEmpresa"
+            (focus)="clearMessages()"
+            placeholder="Nombre de tu empresa"
+            required
+            [disabled]="isLoading">
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripción *</label>
+          <textarea 
+            id="descripcion" 
+            name="descripcion"
+            [(ngModel)]="registroData.descripcion"
+            (focus)="clearMessages()"
+            placeholder="Describe le nombre de tu empresa desarrolladora"
+            required
+            rows="3"
+            [disabled]="isLoading"></textarea>
+        </div>
+
+        <h3 class="section-title">Datos del Usuario Principal</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre Completo *</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre"
+              [(ngModel)]="registroData.nombre"
+              (focus)="clearMessages()"
+              placeholder="Nombre completo"
+              required
+              [disabled]="isLoading">
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo Electrónico *</label>
+            <input 
+              type="email" 
+              id="correo" 
+              name="correo"
+              [(ngModel)]="registroData.correo"
+              (focus)="clearMessages()"
+              placeholder="tu@empresa.com"
+              required
+              [disabled]="isLoading">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fechaNacimiento">Fecha de Nacimiento *</label>
+            <input 
+              type="date" 
+              id="fechaNacimiento" 
+              name="fechaNacimiento"
+              [(ngModel)]="registroData.fechaNacimiento"
+              (focus)="clearMessages()"
+              required
+              [disabled]="isLoading">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña *</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password"
+              [(ngModel)]="registroData.password"
+              (focus)="clearMessages()"
+              placeholder="Por favor, mínimo 6 caracteres"
+              required
+              minlength="6"
+              [disabled]="isLoading">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar Contraseña *</label>
+          <input 
+            type="password" 
+            id="confirmPassword" 
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            (focus)="clearMessages()"
+            placeholder="Repite tu contraseña"
+            required
+            [disabled]="isLoading">
+        </div>
+
+        <button 
+          type="submit" 
+          class="btn-registro" 
+          [disabled]="isLoading || !registroForm.form.valid"
+          [class.loading]="isLoading">
+          {{ isLoading ? 'Registrando...' : 'Registrar Empresa' }}
+        </button>
+      </form>
+    </div>
+
+    <div class="registro-footer">
+      <p>¿Ya tienes cuenta empresarial?</p>
+      <a routerLink="/login-empresa">Inicia sesión aquí</a>
+    </div>
+  </div>
+</div>

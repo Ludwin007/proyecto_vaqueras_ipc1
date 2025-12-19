@@ -1,0 +1,234 @@
+.registro-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.back-link {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.3s;
+}
+
+.back-link:hover {
+  transform: translateX(-5px);
+}
+
+.registro-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 700px;
+  width: 100%;
+  animation: slideUp 0.5s ease-out;
+  margin: 2rem 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.registro-header {
+  background: linear-gradient(135deg, #6c5ce7, #5f4fd1);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.registro-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.registro-header p {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.registro-body {
+  padding: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #dfe6e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.alert {
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  display: none;
+  animation: shake 0.3s;
+}
+
+.alert.show {
+  display: block;
+}
+
+.alert-error {
+  background: #ffe5e5;
+  color: #d63031;
+  border-left: 4px solid #d63031;
+}
+
+.alert-success {
+  background: #e5f9f5;
+  color: #00b894;
+  border-left: 4px solid #00b894;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.btn-registro {
+  width: 100%;
+  padding: 14px;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.btn-registro:hover:not(:disabled) {
+  background: #5f4fd1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+.btn-registro:disabled {
+  background: #dfe6e9;
+  cursor: not-allowed;
+}
+
+.btn-registro.loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.registro-footer {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: #f8f9fa;
+  border-top: 1px solid #dfe6e9;
+}
+
+.registro-footer p {
+  margin-bottom: 0.5rem;
+  color: #6c757d;
+}
+
+.registro-footer a {
+  color: #6c5ce7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.registro-footer a:hover {
+  color: #5f4fd1;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .registro-card {
+    margin: 1rem;
+  }
+  
+  .registro-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .registro-body {
+    padding: 1.5rem;
+  }
+  
+  .back-link {
+    top: 1rem;
+    left: 1rem;
+  }
+}

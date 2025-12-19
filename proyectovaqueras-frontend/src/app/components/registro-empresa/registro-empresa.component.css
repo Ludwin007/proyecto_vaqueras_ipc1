@@ -1,0 +1,12 @@
+
+.section-title {
+  color: #6c5ce7;
+  font-size: 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #dfe6e9;
+}
+
+.section-title:first-of-type {
+  margin-top: 0;
+}
